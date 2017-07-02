@@ -1,0 +1,88 @@
+\documentclass[numbers]{template}
+
+% generating sample text
+\usepackage{blindtext}
+
+% specify your title
+\title{\bfseries LaTeX paper template}
+
+% set footnotemark symbol
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% using authblk package:
+%   set author and affiliation fonts
+\renewcommand\Authfont{\normalsize}
+\renewcommand\Affilfont{\itshape\small}
+
+\author[1,*]{First author}
+\author[2]{Second author}
+\author[1,2]{Third author}
+
+\affil[1]{First affiliation}
+\affil[2]{Second affiliation}
+
+
+\date{}
+
+% additional margin space for todonotes/comments
+%\setmarginspace{15cm}
+\setmarginspace{0cm}
+
+% % % % % %
+% Macros  %
+% % % % % %
+\newcommand{\jm}[1]{\comment[red!65]{#1}}
+
+
+
+
+
+\begin{document}
+\maketitle
+% This seems to be the only way how to have footnotemark on the right side
+\addtocounter{footnote}{1}
+\footnotetext{Corresponding author. Email: name@university.com}
+\vspace{-3em}
+
+% reset footnotemark symbol to arabic
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\begin{abstract}
+\blindtext
+\end{abstract}
+
+\blindtext
+% use \FloatBarrier to limit figures and tables
+% use \enquote{text} for quoting
+% use \autoref{something} to reference figures, tables, equations in main text
+% use \supref{something} to reference those in supplementary materials
+% for simple TODO in text, just \TODO{text}
+% for notes and comments, use \comment[color]{text}}
+% or define your own color macro with initials (see above)
+
+% use \citet{key}, \citep{key} atp. to cite in main text
+% use \citetsup{key}, \citepsup{key} atp. to cite in supplementary materials
+
+
+\section*{Methods}
+\blindtext
+
+\section*{Results and discussion}
+\blindtext
+
+\section*{Acknowledgements}
+I couldn't do it without \citep{somekey}.
+
+% For APA style:
+%\bibliographystyle{apalike}
+
+% for numbered style: (together with option numbers, which is passed to natbib)
+\bibliographystyle{plos2009}
+\bibliography{bibliography/bibliography}
+\clearpage
+
+\beginsupplement
+\section*{Supplementary Materials}
+
+\end{document}
